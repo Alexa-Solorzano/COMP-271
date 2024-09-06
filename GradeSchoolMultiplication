@@ -1,0 +1,49 @@
+import java.util.Arrays;
+public class GradeSchoolMultiplication {
+    public static void main(String[] args){
+        int[] x = {1,2,3,4};
+        int[] y = {5,6,7,8};
+        int base = 10;
+        int[] product = multiply(x, y, base);
+        System.out.println(Arrays.toString(product));
+    }
+    private static final int DEFAULT_BASE = 10;   
+
+    public static int[] multiply(final int[] x, final int[] y, final int base) {
+        int array1 = x.length; //assigning how long the first array is to array1
+        int array2 = y.length; //assigning how long the second array is to array2
+        int array3= array1 + array2; //creating the new array (the one that will have the product between array1 & array2) 
+        //with the length of at least the length of both arrays combined because the product should not be more than that but it is unknown of how long the new array will be
+        int[] productArray = new int[array3]; //initializing the new array that will hold the product 
+        
+        for(int i= array1-1;i >= 0;i--){ //the elements start from 0 so we have to erase 1 from the length so that the for loop will start at the most 
+        //right side of the array ex: [3,4,5,6,7] has a length of 5 but the elements go [0,1,2,3,4] so 5-1 =4 and so we start out for loop with the element that 
+        //represents the ones place. 
+           for(int j= array2-1; j>=0;j--){ 
+            int product = x[i]*y[j]; //multiply the ones place first 
+            //manage the product values and manage the carry in productArray
+            //product1 is where the carry will be added 
+            //product2 is where the units placed is calculated
+            int carryDigit= i+j;//send the carry amount to the next 10's place 
+            int productDigit= i+j+1; //productArray[productDigit] holds the value at the position product2 in the new array 
+            int result = product + productArray[productDigit]; // result represents the total value by adding the product to the array 
+            productArray[productDigit]= result % base; // get the value for to be  assigned to the element of the new array  
+            productArray[carryDigit] += result / base; // carry the overflow to the next highest digit bc result/base gives the # of units needed to be added to the next digit
+           }
+        } 
+        //the new array was assigned the length of both arrays because we did not know the length of the product array, but now we need to make a new array with the right number of elements
+        //to erase all the leading zeroes, we need to start the finalized array once we find a non-zero. No need for the leading zeros 
+        int startFinalArray= 0;
+        while(startFinalArray < productArray.length && productArray[startFinalArray]==0){
+            startFinalArray++;
+        }
+        //Syntax: In order to use Arrays  Arrays.<function name>;   
+        //Methods in Java method class: copyOfRange(originalArray, fromIndex, endIndex)
+        return Arrays.copyOfRange(productArray, startFinalArray, productArray.length);
+
+    } 
+    
+    public static int[] multiply(final int[] x, final int[] y) {
+        return multiply(x, y, DEFAULT_BASE);
+    } // method multiply
+}
