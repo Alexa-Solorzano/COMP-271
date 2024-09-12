@@ -46,16 +46,40 @@ public class DynamicArray {
     } // default constructor
 
     
+//that returns true if target is present in the underlying array and false if it isn't.
+    public boolean contains(String target){
 
+    }
+//that returns the string in position [index] in the underlying array or null if something wrong.
+    public String get(int index){
+
+    }
+//that returns the value in position [index] in the underlying array then removes that value from the array.
     /** Driver/test code */
+    public String remove(int index){
+
+    }
+
+//that removes the value from position [index] in the underlying array.
+    public void delete(int index){
+
+    }
+//that adds a string in the DynamicArray object, overcoming the fixed size of the foundation array.
+    public void insert(String string){
+
+    }
+//that increases the size of the foundation array as needed to accomodate additional strings inserted to the object.
+    private void resize() {
+
+    }
     public static void main(String[] args) {
         final String PASS = "Pass";
         final String FAIL = "Fail";
         final String NON_EXISTING = "COBOL";
         // Test data
         String[] testData = {"Java", "Python", "C", "C++", "Fortran"};
-        DynamicArray test = new DynamicArray(testData);
-        DynamicArray tset = new DynamicArray(null);
+        prep_DynamicArray test = new prep_DynamicArray(testData);
+        prep_DynamicArray tset = new prep_DynamicArray(null);
         // Naive testing - I am ashamed to do this but I need 
         // to keep things simple for now.
         String testContainsNullTarget = (!test.contains(null)) ? PASS : FAIL;
@@ -65,13 +89,19 @@ public class DynamicArray {
         String testGetNegative = (test.get(-1) == null) ? PASS : FAIL;
         String testGet = (test.get(0).equals(testData[0])) ? PASS : FAIL;
         String testGetOutOfBounds = (test.get(testData.length+1)==null) ? PASS : FAIL;
+        String testRemove = (testData[1].equals(test.remove(1))) ? PASS : FAIL;
+        String testRemoveNull = (test.remove(1) == null) ? PASS : FAIL;
+        String testRemoveOutOfBounds = (test.remove(testData.length+1) == null) ? PASS :FAIL;
         System.out.printf("\nTest for contains(null): ............... %s", testContainsNullTarget);
         System.out.printf("\nTest for contains on null foundation: .. %s", testContainsEmptyData);
         System.out.printf("\nTest for contains (existing): .......... %s", testContainsExisting);
         System.out.printf("\nTest for contains (non existing): ...... %s", testContainsNonExisting);
         System.out.printf("\nTest for get(-1): ...................... %s", testGetNegative);
         System.out.printf("\nTest for get(0): ....................... %s", testGet);
-        System.out.printf("\nTest for get(out of bounds): ........... %s\n\n", testGetOutOfBounds);
+        System.out.printf("\nTest for get(out of bounds): ........... %s\n", testGetOutOfBounds);
+        System.out.printf("\nTest for remove(1): .................... %s", testRemove);
+        System.out.printf("\nTest for remove(null): ................. %s", testRemoveNull);
+        System.out.printf("\nTest for remove(out of bounds): ........ %s\n\n", testRemoveOutOfBounds);
     } // method main
 
 } // class DynamicArray
