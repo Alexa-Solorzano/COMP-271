@@ -50,22 +50,22 @@ public class DynamicArray {
     public boolean contains(String target){
         int i=0; 
         boolean found = false; 
-        while(i < target.length && !found){
-            found = foundation[i].equalIgnoreCase(target);
+        while(i < foundation.length && !found){
+            found = foundation[i].equalsIgnoreCase(target);
             i++;
         } 
         return found;
     }
 //that returns the string in position [index] in the underlying array or null if something wrong.
     public String get(int index){
-    int i = index; 
-    System.out.println(foundation[i]); 
-    }
-    
-    /**
+        if(index < 0 || index >= foundation.length){
+            return null; 
+        } 
+        return foundation[index];
+     }
 //that returns the value in position [index] in the underlying array then removes that value from the array.
     public String remove(int index){
-
+        
     }
 
 //that removes the value from position [index] in the underlying array.
@@ -80,7 +80,7 @@ public class DynamicArray {
     private void resize() {
 
     }
-    */
+    
     public static void main(String[] args) {
         final String PASS = "Pass";
         final String FAIL = "Fail";
