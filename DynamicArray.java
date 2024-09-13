@@ -46,12 +46,6 @@ public class DynamicArray {
         this(DEFAULT_SIZE); 
     } // default constructor
 
-
-    public prep_DynamicArray(String[] data){
-    this.foundation = data;
-    this.occupancy = data.length;
-    }
-    
 //that returns true if target is present in the underlying array and false if it isn't.
     public boolean contains(String target){
         int i=0; //start checking from the beginning of foundation array
