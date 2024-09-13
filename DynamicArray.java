@@ -54,20 +54,20 @@ public class DynamicArray {
     
 //that returns true if target is present in the underlying array and false if it isn't.
     public boolean contains(String target){
-        int i=0; 
-        boolean found = false; 
-        while(i < foundation.length && !found){
-            found = foundation[i].equalsIgnoreCase(target);
-            i++;
+        int i=0; //start checking from the beginning of foundation array
+        boolean found = false;  //track whether target has been found 
+        while(i < foundation.length && !found){ // as long as i is less than the length of the foundarion array AND found is false
+            found = foundation[i].equalsIgnoreCase(target); //check if foundation[i] is equal to target 
+            i++; //and keep checking the next element until we hit the end of the array 
         } 
         return found;
     }
 //that returns the string in position [index] in the underlying array or null if something wrong.
     public String get(int index){
-        if(index < 0 || index >= foundation.length){
-            return null; 
+        if(index < 0 || index >= foundation.length){ //is the index less than 0 or greater than/equal to the length of the foundation array?
+            return null; //index is invalid/out of bounds therefore null 
         } 
-        return foundation[index];
+        return foundation[index]; // if it is in bounds of the array, return the string located at foundation[index]
      }
     /**
     that returns the value in position [index] in the underlying array then removes that value from the array.
@@ -75,13 +75,19 @@ public class DynamicArray {
     */
 
     public String remove(int index){
+        //check if the index is within valid range 
         if(index < 0 || index >= foundation.length){
             return null; 
         } 
-        return foundation[index];
-        int end = index + 1; 
-        Arrays.fill(foundation, index, end, null);
-     }
+        String removedString = foundation[index];
+        //shift elements to the left to account for the missing index
+        for(int i = index; i < foundation.length-1; i++){ //start from index to the rest of the array
+            foundation[i] = foundation[i+1];//move to the left 
+         }
+        foundation[foundation.length-1] = null; //make last index null to represent the removal
+        return removedString; //return the value in position[index]
+    }
+        
         
     /**
     The fill() method fills an array with a specified value.
@@ -90,9 +96,15 @@ public class DynamicArray {
     */
     
     public void delete(int index){
-        int end = index + 1; 
-        Arrays.fill(foundation, index, end, null);
-    }
+         if(index < 0 || index >= foundation.length){
+            return; 
+        } 
+        String removedString = foundation[index];
+        //shift elements to the left to account for the missing index
+        for(int i = index; i < foundation.length-1; i++){ //start from index to the rest of the array
+            foundation[i] = foundation[i+1];//move to the left 
+         }
+        foundation[foundation.length-1] = null; //make last index null to represent the removal
     /**
     that adds a string in the DynamicArray object, overcoming the fixed size of the foundation array.
     1) make an array deep copy 
@@ -150,8 +162,7 @@ public class DynamicArray {
         System.out.printf("\nTest for remove(1): .................... %s", testRemove);
         System.out.printf("\nTest for remove(null): ................. %s", testRemoveNull);
         System.out.printf("\nTest for remove(out of bounds): ........ %s\n\n", testRemoveOutOfBounds);
-       //test.insert("Pascal");
-       // test.insert("Basic");
+        test.insert("Pascal");
+        test.insert("Basic");
     } // method main
-
 } // class DynamicArray
