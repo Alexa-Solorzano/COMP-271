@@ -137,7 +137,7 @@ public class DynamicArray {
         // Naive testing - I am ashamed to do this but I need 
         // to keep things simple for now.
         String testContainsNullTarget = (!test.contains(null)) ? PASS : FAIL;
-        String testContainsEmptyData =  (!tset.contains("Java")) ? PASS : FAIL;
+        String testContainsEmptyData =  (!test.contains("Java")) ? PASS : FAIL;
         String testContainsExisting = (test.contains(testData[1])) ? PASS : FAIL;
         String testContainsNonExisting = (!test.contains(NON_EXISTING)) ? PASS : FAIL;
         String testGetNegative = (test.get(-1) == null) ? PASS : FAIL;
