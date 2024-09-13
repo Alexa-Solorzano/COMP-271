@@ -14,6 +14,7 @@
  * 
  * will have initially room for 4 strings.
  */
+import java.util.Arrays; 
 public class DynamicArray {
 
     /** Default size for underlying array */
@@ -42,9 +43,14 @@ public class DynamicArray {
      * Default constructor
      */
     public DynamicArray() {
-        this(DEFAULT_SIZE)
+        this(DEFAULT_SIZE); 
     } // default constructor
 
+
+    public prep_DynamicArray(String[] data){
+    this.foundation = data;
+    this.occupancy = data.length;
+    }
     
 //that returns true if target is present in the underlying array and false if it isn't.
     public boolean contains(String target){
@@ -87,14 +93,31 @@ public class DynamicArray {
         int end = index + 1; 
         Arrays.fill(foundation, index, end, null);
     }
-    
-//that adds a string in the DynamicArray object, overcoming the fixed size of the foundation array.
+    /**
+    that adds a string in the DynamicArray object, overcoming the fixed size of the foundation array.
+    1) make an array deep copy 
+    2) add space for one more index (inc. fixed size by one)
+    3) add string to newly added index 
+    4) replace old array with new array
+    */
     public void insert(String string){
-
+        int newArraySize= foundation.length + 1; 
+        String [] insertedString = new String[newArraySize];
+        for(int i=0; i<foundation.length; i++){
+            insertedString[i] = foundation[i];
+        }
+        insertedString[foundation.length] = string; 
+        foundation = insertedString;
+        
     }
 //that increases the size of the foundation array as needed to accomodate additional strings inserted to the object.
     private void resize() {
-
+        int newArraySize = foundation.length * 2; 
+        String [] resizedArray = new String[newArraySize];
+        for(int i=0; i<foundation.length; i++){
+            resizedArray[i] = foundation[i];
+        }
+        foundation = resizedArray;
     }
     
     public static void main(String[] args) {
@@ -127,7 +150,7 @@ public class DynamicArray {
         System.out.printf("\nTest for remove(1): .................... %s", testRemove);
         System.out.printf("\nTest for remove(null): ................. %s", testRemoveNull);
         System.out.printf("\nTest for remove(out of bounds): ........ %s\n\n", testRemoveOutOfBounds);
-       // test.insert("Pascal");
+       //test.insert("Pascal");
        // test.insert("Basic");
     } // method main
 
