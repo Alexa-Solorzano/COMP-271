@@ -63,15 +63,31 @@ public class DynamicArray {
         } 
         return foundation[index];
      }
-//that returns the value in position [index] in the underlying array then removes that value from the array.
+    /**
+    that returns the value in position [index] in the underlying array then removes that value from the array.
+    shift the elements in the array to accomodate for the removed index
+    */
+
     public String remove(int index){
+        if(index < 0 || index >= foundation.length){
+            return null; 
+        } 
+        return foundation[index];
+        int end = index + 1; 
+        Arrays.fill(foundation, index, end, null);
+     }
         
-    }
-
-//that removes the value from position [index] in the underlying array.
+    /**
+    The fill() method fills an array with a specified value.
+    Arrays.fill(array, start, end, value) 
+    that removes the value from position [index] in the underlying array.
+    */
+    
     public void delete(int index){
-
+        int end = index + 1; 
+        Arrays.fill(foundation, index, end, null);
     }
+    
 //that adds a string in the DynamicArray object, overcoming the fixed size of the foundation array.
     public void insert(String string){
 
