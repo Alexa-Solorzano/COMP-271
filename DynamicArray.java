@@ -48,14 +48,22 @@ public class DynamicArray {
     
 //that returns true if target is present in the underlying array and false if it isn't.
     public boolean contains(String target){
-
+        int i=0; 
+        boolean found = false; 
+        while(i < target.length && !found){
+            found = foundation[i].equalIgnoreCase(target);
+            i++;
+        } 
+        return found;
     }
 //that returns the string in position [index] in the underlying array or null if something wrong.
     public String get(int index){
-
+    int i = index; 
+    System.out.println(foundation[i]); 
     }
+    
+    /**
 //that returns the value in position [index] in the underlying array then removes that value from the array.
-    /** Driver/test code */
     public String remove(int index){
 
     }
@@ -72,6 +80,7 @@ public class DynamicArray {
     private void resize() {
 
     }
+    */
     public static void main(String[] args) {
         final String PASS = "Pass";
         final String FAIL = "Fail";
@@ -102,6 +111,8 @@ public class DynamicArray {
         System.out.printf("\nTest for remove(1): .................... %s", testRemove);
         System.out.printf("\nTest for remove(null): ................. %s", testRemoveNull);
         System.out.printf("\nTest for remove(out of bounds): ........ %s\n\n", testRemoveOutOfBounds);
+       // test.insert("Pascal");
+       // test.insert("Basic");
     } // method main
 
 } // class DynamicArray
