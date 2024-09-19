@@ -15,7 +15,7 @@
  * will have initially room for 4 strings.
  */
 import java.util.Arrays; 
-public class DynamicArray {
+public class DynamicArray_Week02 {
 
     /** Default size for underlying array */
     private static final int DEFAULT_SIZE = 4;
