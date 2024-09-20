@@ -188,11 +188,13 @@ public class DynamicArray {
     } // method insert
 
     public String toString(){
-        //creates a textual representation of the object
-        //exact format and content of your toString method is up to you. Consider what the DynamicArray contains and how would you like to present to the world.
-        //initialize string that represents the textual representation
-        //iterating through all the test arrays length, excluding the nulls 
-        //if the index is not null then add it to the string, and add seperate the indexes with commas 
+        /** 
+        * creates a textual representation of the object
+        * exact format and content of your toString method is up to you. Consider what the DynamicArray contains and how would you like to present to the world.
+        * initialize string that represents the textual representation
+        * iterating through all the test arrays length, excluding the nulls 
+        * if the index is not null then add it to the string, and add seperate the indexes with commas 
+        */
         String textRepresent = "Dynamic Array: [";
         for(int i = 0; i< occupancy; i++){
             if(foundation[i] != null){
@@ -207,14 +209,16 @@ public class DynamicArray {
     }
 
     public int index(String string){
-    //returns the array position of string in the underlying array. If there are multiple occurences of string in this.foundation, 
-    //the method returns the position of the first occurrence. If there are none, the method shall return -1.
-    // foundation = underlying array 
-    //mix of the contain method but include the index/position 
-    // scan through entire array, excluding the null 
-    //asssign string to string variable
-    // looking for the index if(this.foundation[i]=string variable)
-    //get index 
+    /** 
+    * returns the array position of string in the underlying array. If there are multiple occurences of string in this.foundation, 
+    * the method returns the position of the first occurrence. If there are none, the method shall return -1.
+    * foundation = underlying array 
+    * mix of the contain method but include the index/position 
+    * scan through entire array, excluding the null 
+    * asssign string to string variable
+    * looking for the index if(this.foundation[i]=string variable)
+    * get index 
+    */
     if(string != null && this.foundation != null){
         for(int i=0; i< this.occupancy; i++){
             if(string.equals(this.foundation[i])){
@@ -226,13 +230,16 @@ public class DynamicArray {
 }
 
     public double usage(){
-        //returns the percentage of the underlying array elements that are current not null. The number returned by the method must 
-        //have at most 2 decimal digits. For example, if the underlying array has a length of 10 but occupancy is 3, the usage is 0.3333333333. Your method should return just 0.33. (Hint: Math.round)
-        //get the number of occupied indexes 
-        //get the number of unoccupied indexes 
-        //assign int variable of the total number of indexes 
-        //assign double variable to occupied indexes over total indexes 
-        //percentage = occupany/capacity **rounding 2 decimal places**
+        /**
+        * returns the percentage of the underlying array elements that are current not null. The number returned by the method must 
+        * have at most 2 decimal digits. For example, if the underlying array has a length of 10 but occupancy is 3, the usage is 0.3333333333. Your method should return just 0.33. (Hint: Math.round)
+        * get the number of occupied indexes 
+        * get the number of unoccupied indexes 
+        * assign int variable of the total number of indexes 
+        * assign double variable to occupied indexes over total indexes 
+        * /percentage = occupany/capacity **rounding 2 decimal places**
+         */
+        
         int occupied = 0;
         for(int i=0; i< this.foundation.length; i++){
             if(this.foundation[i] != null){
@@ -254,3 +261,15 @@ public class DynamicArray {
     } // method main
 
 } // class DynamicArray
+
+/**
+add the following three methods:
+
+String toString() that creates a textual representation of the object. For this method, you cannot use Arrays.toString() or any other imported utilities. (Item 13 from Effective Java is some good reading about toString; we illustrated a simple toString in class Person as well).
+
+The exact format and content of your toString method is up to you. Consider what the DynamicArray contains and how would you like to present to the world.
+
+int index(String string) that returns the array position of string in the underlying array. If there are multiple occurences of string in this.foundation, the method returns the position of the first occurrence. If there are none, the method shall return -1.
+
+double usage() that returns the percentage of the underlying array elements that are current not null. The number returned by the method must have at most 2 decimal digits. For example, if the underlying array has a length of 10 but occupancy is 3, the usage is 0.3333333333. Your method should return just 0.33. (Hint: Math.round)
+*/
