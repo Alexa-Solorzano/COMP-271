@@ -212,13 +212,13 @@ public class DynamicArray {
     /** 
     * returns the array position of string in the underlying array. If there are multiple occurences of string in this.foundation, 
     * the method returns the position of the first occurrence. If there are none, the method shall return -1.
-    * foundation = underlying array 
-    * mix of the contain method but include the index/position 
     * scan through entire array, excluding the null 
     * asssign string to string variable
     * looking for the index if(this.foundation[i]=string variable)
     * get index 
-    */
+    * As long as there is data in the array, and if the string is found in one of the indexes in the array, the index it is found should be returned
+    * Return -1 if nothing found
+*/
     if(string != null && this.foundation != null){
         for(int i=0; i< this.occupancy; i++){
             if(string.equals(this.foundation[i])){
