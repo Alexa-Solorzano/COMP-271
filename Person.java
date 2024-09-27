@@ -174,5 +174,8 @@ public class Person implements Comparable<Person>, SillyActions {
            winningLottoNumbers[count] = randomLottoNumber; 
            count++;
        }
+        for(int i = 0; i < winningLottoNumbers.length; i++){
+            System.out.printl(winningLottoNumbers[i] + " ");
+        }
     }
 }
