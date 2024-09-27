@@ -91,7 +91,7 @@ public class Person implements Comparable<Person>, SillyActions {
     }
 
     /** Count to ten in an unusual way (maybe skip a number) */
-    public void countToTenWeirdly();
+    public void countToTenWeirdly(){
     /**
     1) declare an array with words in different languages counting to 10 
     2) declare a variable with a random number that will represent the element of the skipped letter
@@ -99,5 +99,13 @@ public class Person implements Comparable<Person>, SillyActions {
     4) if(loop traversing is not the skipped element)
            then print out the array  
     */
-    
+        String[] tenAroundTheWorld = {"UNO","DEUX", "THREE", "QUATRE", "FUNF", "SEIS", "SEPT", "ACHT", "NEUF", "TEN"};
+        Random random = new Random();
+        int skippedNumber = random.nextInt(10);
+        for(int i=0; i<=tenAroundTheWorld.length; i++){
+            if(i != skippedNumber){
+               System.out.print(tenAroundTheWorld[i]) + " ";
+            }
+        }
+    }
 }
