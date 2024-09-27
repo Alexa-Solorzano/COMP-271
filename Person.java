@@ -64,6 +64,14 @@ public class Person implements Comparable<Person>, SillyActions {
         this.yearBorn = yearBorn;
     }
 
+    public void makeRandomSound(){
+    /**
+    1) Declare an array with random sounds
+    2) using the random class, generate a random index number based on the length of the array
+    3) assign variable representing the random sound chosen and attach it to the random index 
+    4) print out sound
+    */
+    }
     public void performSillyDance(){
         System.out.println("The footwork for the Caballo Dorado - Payaso de Rodeo is complicated but simple.\nYou start off with one arm/fist in the air and the stomp with opposite foot to the beat." +
                           "Once the music starts you take two steps to the right followed by two steps to the back. Then you take two steps to the back and two steps forward. From this position make a half turn" +
