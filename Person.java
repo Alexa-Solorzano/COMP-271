@@ -122,6 +122,30 @@ public class Person implements Comparable<Person>, SillyActions {
         }
     }
 
+    public String createWhimsicalPoem(String topic){
+    /**
+    * 1) ensure there are variables representing random words from PoemWords java file 
+    * 2) start the poem, including the String topic in the first line 
+    */
+        Random random = new Random();
+        String insertPoemWord1 = getRandomPoemWord(random);
+        String insertPoemWord2 = getRandomPoemWord(random);
+        String insertPoemWord3 = getRandomPoemWord(random);
+        String insertPoemWord4 = getRandomPoemWord(random);
+        String insertPoemWord5 = getRandomPoemWord(random);
+        String insertPoemWord6 = getRandomPoemWord(random);
+        String insertPoemWord7 = getRandomPoemWord(random);
+        
+        String whimsicalPoem = "In the " + topic + " of " + insertPoemWord1 + ",\nWe find the " + insertPoemWord2 + " of " + insertPoemWord3 + "\nWhere " + insertPoemWord4 + 
+            " meets " + insertPoemWord5 + ",\nAnd " + insertPoemWord6 + " dances with " + insertPoemWord7 + ".");
+        return whimsicalPoem; 
+    }
+
+    private String getRandomPoemWord(Random random){
+        int index = random.nextInt(PoemWords.words.length);
+        return PoemWords.words[index];
+    }
+    
     public void winStateLottery(){
     /**
     * 1) In Illinois Loto, players pick 6 numbers from 1-52
