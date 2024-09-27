@@ -75,8 +75,8 @@ public class Person implements Comparable<Person>, SillyActions {
         1) declare an array with all 26 letters of the alphabet 
         2) declare a variable with a random number that will represent the element of the skipped letter
         3) for loop that will print out the array backwards 
-        4) if(loop traverses this one element (the variable))
-           then print out the next element 
+        4) if(loop traversing is not the skipped element)
+           then print out the array  
         */
         char[] alphabetOrder = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
         Random random = new Random();
@@ -89,4 +89,15 @@ public class Person implements Comparable<Person>, SillyActions {
         }
         return backwardsResult.toString().trim();
     }
+
+    /** Count to ten in an unusual way (maybe skip a number) */
+    public void countToTenWeirdly();
+    /**
+    1) declare an array with words in different languages counting to 10 
+    2) declare a variable with a random number that will represent the element of the skipped letter
+    3) for loop that will print out the array  
+    4) if(loop traversing is not the skipped element)
+           then print out the array  
+    */
+    
 }
