@@ -121,4 +121,25 @@ public class Person implements Comparable<Person>, SillyActions {
             }
         }
     }
+
+    public void winStateLottery(){
+    /**
+    * 1) In Illinois Loto, players pick 6 numbers from 1-52
+    * 2) declare an array with the numbers from 1-52
+    * 3) declare 6 variables with random numbers from the array
+    * 4) organize into new array representing the winning lottery numbers 
+    */
+        int[] lottoNumbers = new int[52];
+        for(int i=0; i<52; i++){
+            lottoNumbers[i] = i+1;
+        }
+        Random random = new Random();
+        int lottoNumber1= random.nextInt(52)+1;
+        int lottoNumber2= random.nextInt(52)+1;
+        int lottoNumber3= random.nextInt(52)+1;
+        int lottoNumber4= random.nextInt(52)+1;
+        int lottoNumber5= random.nextInt(52)+1;
+        int lottoNumber6= random.nextInt(52)+1;
+        int[] winningLottoNumbers= {lottoNumber1, lottoNumber2, lottoNumber3, lottoNumber4, lottoNumber5, lottoNumber6};
+    }
 }
