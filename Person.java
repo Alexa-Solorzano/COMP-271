@@ -125,21 +125,30 @@ public class Person implements Comparable<Person>, SillyActions {
     public void winStateLottery(){
     /**
     * 1) In Illinois Loto, players pick 6 numbers from 1-52
-    * 2) declare an array with the numbers from 1-52
-    * 3) declare 6 variables with random numbers from the array
-    * 4) organize into new array representing the winning lottery numbers 
+    * 2) declare an array that represents the 6 winning lottery number
+    * 3) keep count of how many winning numbers we have 
+    * 4) while we have less than 6 lottery numbers, generate random number from 1-52 
+    * 5) need to keep track and ensure each number is unique --> boolean
+    * 6) declare boolean as true so that we know when a winning lottery number is repeated and boolean turns false 
+    * 7) for each winning lottery number, a random number should be assigned, and if it is repeated boolean equals false 
+    * 8) if it is unique, add it to the winning lottery number array and increment the count to accurately keep track
     */
-        int[] lottoNumbers = new int[52];
-        for(int i=0; i<52; i++){
-            lottoNumbers[i] = i+1;
-        }
         Random random = new Random();
-        int lottoNumber1= random.nextInt(52)+1;
-        int lottoNumber2= random.nextInt(52)+1;
-        int lottoNumber3= random.nextInt(52)+1;
-        int lottoNumber4= random.nextInt(52)+1;
-        int lottoNumber5= random.nextInt(52)+1;
-        int lottoNumber6= random.nextInt(52)+1;
-        int[] winningLottoNumbers= {lottoNumber1, lottoNumber2, lottoNumber3, lottoNumber4, lottoNumber5, lottoNumber6};
+        int[] winningLottoNumbers = new int[6];
+        int count =0; 
+        while(count < 6){
+            int randomLottoNumber = random.nextInt(52)+1; //+1 ensures it generates a number from 1-52
+            boolean isUnique = true;
+        }
+        
+        for(int i = 0; i < count; i++){
+            if(winningLottoNumbers[i] == randomLottoNumber){
+                isUnique = false; 
+            }
+        }
+       if(isUnique){
+           winningLottoNumbers[count] = randomLottoNumber; 
+           count++;
+       }
     }
 }
