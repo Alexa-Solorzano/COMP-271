@@ -80,18 +80,21 @@ public class TrainLine {
         return removedStation;
     }
 
-    public void insert(String, int){
-        TrainStation newStation = String; 
-        TrainStation newStation = new TrainStation(String);
-        if(int >= 1 && int <= int+1; i++){
-            array[i+1]=array[i];
+    public void insert(String newStationName, int position){
+        //TrainStation newStation = String; 
+        TrainStation newStation = new TrainStation(newStationName);
+        if(position >= 1 && position <= this.numberOfStations+1){
+            if(int==1){
+                newStation == this.head; 
+                this.head = this.head.getNext();
+            } else {
+               // if(int >= 1 && int <= int+1; i++){
+                //    array[i+1]=array[i];
             //replaces before it moves over 
             //need to move over and extend the space to put in new value 
             //declare null first and then input sting? 
             TrainStation cursor = this.int; 
             for(int i = int; i < numberOfStations; i++){
-                
-        redLineSB.insert(String, int);
                 TrainStation cursor = this.head;
                 for (int i = 1; i < int-1; i++) {
                     cursor = cursor.getNext();
