@@ -107,6 +107,10 @@ public class TrainLine {
         }
     }
 
+    public String toString(){
+        
+    }
+
     public static void main(String[] args) {
         // A few station names
         String[] stationNames = { "Howard", "Jarvis", "Morse",
