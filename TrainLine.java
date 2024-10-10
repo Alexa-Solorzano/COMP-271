@@ -85,8 +85,12 @@ public class TrainLine {
         TrainStation newStation = new TrainStation(newStationName);
         if(position >= 1 && position <= this.numberOfStations+1){
             if(int==1){
-                newStation == this.head; 
-                this.head = this.head.getNext();
+                //insert the head
+                newStation.setNext(this.head); 
+                this.head = newStation();
+                if(this.numberOfStations==0){
+                    this.tail = newStation;
+                }
             } else {
                // if(int >= 1 && int <= int+1; i++){
                 //    array[i+1]=array[i];
