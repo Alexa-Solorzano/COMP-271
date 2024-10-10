@@ -92,11 +92,6 @@ public class TrainLine {
                     this.tail = newStation;
                 }
             } else {
-               // if(int >= 1 && int <= int+1; i++){
-                //    array[i+1]=array[i];
-            //replaces before it moves over 
-            //need to move over and extend the space to put in new value 
-            //declare null first and then input sting? 
             TrainStation cursor = this.head; 
             for(int i = 1; i < position-1; i++){
                     cursor = cursor.getNext();
