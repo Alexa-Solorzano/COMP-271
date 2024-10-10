@@ -84,11 +84,11 @@ public class TrainLine {
         //TrainStation newStation = String; 
         TrainStation newStation = new TrainStation(newStationName);
         if(position >= 1 && position <= this.numberOfStations+1){
-            if(int==1){
+            if(position==1){
                 //insert the head
                 newStation.setNext(this.head); 
-                this.head = newStation();
-                if(this.numberOfStations==0){
+                this.head = newStation;
+                if(this.numberOfStations==0){ //if the list was empty, newStation is also the tail 
                     this.tail = newStation;
                 }
             } else {
@@ -97,22 +97,19 @@ public class TrainLine {
             //replaces before it moves over 
             //need to move over and extend the space to put in new value 
             //declare null first and then input sting? 
-            TrainStation cursor = this.int; 
-            for(int i = int; i < numberOfStations; i++){
-                TrainStation cursor = this.head;
-                for (int i = 1; i < int-1; i++) {
+            TrainStation cursor = this.head; 
+            for(int i = 1; i < position-1; i++){
                     cursor = cursor.getNext();
                 }
-                // cursor should be at the prior station
-                if (cursor.getNext() == this.tail) {
-                    this.tail = cursor;
+                // Insert new station after cursor 
+                newStation.setNext(cursor.getNext());
+                cursor.setNext(newStation);
+                if(newStation.getNext()==null){
+                    this.tail = newStation;
                 }
-                newStation = cursor.getNext();
-                cursor.setNext(cursor.getNext().getNext());
             }
-            this.numberOfStations++;
-            newStation.setNext(String);
-        
+            this.numberOfStations++;  
+        }
     }
 
     public static void main(String[] args) {
