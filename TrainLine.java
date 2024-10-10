@@ -108,7 +108,8 @@ public class TrainLine {
     }
 
     public String toString(){
-        
+        String output = ("%s --> ", stationNames);
+        return output; 
     }
 
     public static void main(String[] args) {
