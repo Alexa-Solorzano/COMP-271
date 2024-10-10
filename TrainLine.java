@@ -81,6 +81,11 @@ public class TrainLine {
     }
 
     public void insert(String, int){
+        TrainStation newStation = String; 
+        if(int >= 1 && int <= this.numberOfStations){
+            TrainStation cursor = this.int; 
+            for(int i = int; i < numberOfStations; i++){
+                
         redLineSB.insert(String, int);
         
     }
