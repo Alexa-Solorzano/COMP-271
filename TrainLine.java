@@ -80,6 +80,11 @@ public class TrainLine {
         return removedStation;
     }
 
+    public void insert(String, int){
+        redLineSB.insert(String, int);
+        
+    }
+
     public static void main(String[] args) {
         // A few station names
         String[] stationNames = { "Howard", "Jarvis", "Morse",
