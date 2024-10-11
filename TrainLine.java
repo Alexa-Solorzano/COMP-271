@@ -81,7 +81,19 @@ public class TrainLine {
     }
 
     public void insert(String newStationName, int position){
-        //TrainStation newStation = String; 
+        /**
+        * Make a new TrainStation object reflecting the new inserted station name 
+        * protect against exceptions by ensuring the position is within the linked list 
+        * if the inserted station right at the head of the list, 
+        * the head should be replaced by the new station name 
+        * keep track of the linked list by using a cursor starting at the head
+        * traverse the linked list until we get to the station prior to the position 
+        * update the cursor to point to the next station in the list, moving the cursor foward to get in position before the insertion point
+        * link the new station to the existing station that comes after the cursor 
+        * update the pointer of the cursor to point to the new Station link 
+        * if there is no station after the new inserted station, it should be declared as the tail as well
+        * update the number of stations 
+        */
         TrainStation newStation = new TrainStation(newStationName);
         if(position >= 1 && position <= this.numberOfStations+1){
             if(position==1){
