@@ -9,6 +9,10 @@ public class TrainLine {
     /** Keeps a running tally of train stations in the trainline */
     private int numberOfStations;
 
+    private static final int CHARACTER_MAX_FOR_LINE = 80; 
+    private static final String FORWARD_ARROW = "-->";
+    private static final String BACKWARD_ARROW = "<--";
+
     /** Full constructor */
     public TrainLine(String name, TrainStation head) {
         this.name = name;
@@ -118,28 +122,71 @@ public class TrainLine {
             this.numberOfStations++;  
         }
     }
-
+/**
+* safeguard/check for no station 
+* Initialize array and variables-- array to hold the names of the station, initialize current to head the linked list of train station, index = track position in array
+* Collect station names 
+* loop through all the stations {
+* call getName on current station and store it in the array
+* and update the current to include the next station
+* }
+* Output string should include name of train followed by arrow 
+* use boolean to track which direction the arrows are pointing 
+* iterate over stationNames array to build the output 
+* attach station names to the result
+* if it is the last station{
+* add the correct arrow 
+* }
+* check the length of the line and make sure it does not exceed the max character
+* restart the line 
+* switch direction through boolean
+* print remaining result 
+*/
     public String toString(){
+    if(numberOfStations == 0){
+        return name + " has no stations";
+    }
         String[] stationNames = new String[numberOfStations];
         TrainStation current = head;
         int index = 0; 
-
+        //collect station names 
         while(current != null){
             stationNames[index++] = current.getName();
             current = current.getNext();
         }
 
-        String result = name + "-->";
+        //track the direction of the next line (whether forward or backwards)
+        boolean forwardLine = true; 
+        // the result string 
+        String result = name + FORWARD_ARROW;
+        
+        //the lines 
         for(int i=0; i < stationNames.length; i++){
-            result += stationNames[i];
-            if(i < stationNames.length - 1){
-                result += "-->";
+            result += stationNames[i]; //attach station name 
+            if(i < stationNames.length - 1){ //correct arrow based on line direction 
+                if(forwardLine){
+                    result += FORWARD_ARROW;
+                } else {
+                    result += BACKWARD_ARROW;
+                }
+            }
+            // Make sure that the line does not exceed over 80 characters 
+            if(result.length() > CHARACTER_MAX_FOR_LINE){
+                System.out.println(result); //print the current line 
+                result = name + FORWARD_ARROW; //RESET the next line to start fresh 
+                //make sure it is the right arrow
+                if(forwardLine){
+                    result += stationNames[i]; //start with current station 
+                } else {
+                    result += stationNames[i] + BACKWARD_ARROW; //backwards case
+                }
+                forwardLine = !forwardLine; //switch direction for the next line 
             }
         }
-        return result; 
-        //still need:
-        //As long as the return string printout is a folded (snake-like) path with arrows moving in one direction in one line and the opposite direction in the other line, and the corners are displayed properly, and each line does not exceed 80 characters, you are fine.
-
+        if(result.length() > 0){
+            System.out.println(result);
+        }
+        return ""; 
     }
 
     
