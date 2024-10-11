@@ -108,10 +108,29 @@ public class TrainLine {
     }
 
     public String toString(){
-        String output = ("%s --> ", stationNames);
-        return output; 
+        String[] stationNames = new String[numberOfStations];
+        TrainStation current = head;
+        int index = 0; 
+
+        while(current != null){
+            stationNames[index++] = current.getName();
+            current = current.getNext();
+        }
+
+        String result = name + "-->";
+        for(int i=0; i < stationNames.length; i++){
+            result += stationNames[i];
+            if(i < stationNames.length - 1){
+                result += "-->";
+            }
+        }
+        return result; 
+        //still need:
+        //As long as the return string printout is a folded (snake-like) path with arrows moving in one direction in one line and the opposite direction in the other line, and the corners are displayed properly, and each line does not exceed 80 characters, you are fine.
+
     }
 
+    
     public static void main(String[] args) {
         // A few station names
         String[] stationNames = { "Howard", "Jarvis", "Morse",
