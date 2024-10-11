@@ -149,12 +149,25 @@ public class TrainLine {
                 "Loyola", "Granville", "Thorndale" };
         // A populated trainline
         TrainLine redLineSB = new TrainLine("Red Line SB");
-        for (String station : stationNames) {
+        for (String station : CTA.RED_LINE_SB_NAMES) {
             redLineSB.add(station);
         }
+
+        redLineSB.insert("COMP 271", 5);
+        System.out.println(redLineSB);
         // An empty trainline
         prep_TrainLine brownLineSB = new prep_TrainLine("Brown Line SB");
         // A random station name
         String randomName = "Oak Park";
     } // method main
 } // class TrainLine
+/**
+* During class I make sure that I am fully engaged through my note taking. I ensure to take intensive notes each time I attend class.
+* I write down what professor Leo is explaining, I take moments to just understand the metaphors, and I write down my own suggestions/ideas.
+* I use these notes to reflect and connect to the themes of the week's assignment. I also make sure to look over the material from the previous week.
+* I understand that many of the topics learned are built on top of each other, and connect as we learn more. 
+* I have never had homework that is assigned on Friday and is due the next week. I think I’ve been caught in the cycle of not looking at the assignment until Monday.
+* I think moving forward I need to account for myself to look over the assignment over the weekend. I am trying to evolve my style of coding with the new style shown in the solutions.
+* I am trying to elevate my coding style to simplify the code. I come to class every week, and the only times I have missed have been due to health-related issues that I let Professor Leo know beforehand via emails.
+* Based on this reflection, I expect my course grade to be a B-. 
+*/
